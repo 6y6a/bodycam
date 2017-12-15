@@ -2,13 +2,27 @@
 
 
 .menu {
-  position: relative;
   margin-top: 10px;
   background: $bg-color;
   padding: 10px 0;
 
+  :after {
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 20px;
+      background: $bg-color;
+      z-index: -1;
+    }
+  }
+
   @include media-breakpoint-up(xl) {
     margin-top: -10px;
+    background: linear-gradient(-45deg, $bg-color 60.91%, #fff 60.9% );
   }
 
   &__container {
@@ -16,6 +30,10 @@
     @include make-container-width();
     display: flex;
     justify-content: center;
+
+    @include media-breakpoint-up(md) {
+      justify-content: flex-end;
+    }
   }
 
   &__toggle {
@@ -78,9 +96,13 @@
     @include media-breakpoint-up(md) {
       position: static;
       flex-direction: row;
-      justify-content: flex-end;
+      width: auto;
       opacity: 1;
       visibility: visible;
+    }
+    
+    @include media-breakpoint-up(xl) {
+      background: transparent;
     }
   }
 

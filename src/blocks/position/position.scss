@@ -1,0 +1,15 @@
+@import '../../scss/basic/variables';
+
+.position {
+  position: relative;
+
+  &__header {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__menu {
+    position: relative;
+    z-index: 1;
+  }
+}

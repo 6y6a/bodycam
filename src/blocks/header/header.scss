@@ -2,6 +2,7 @@
 
 .header {
   font-family: sans-serif;
+  z-index: 5;
 
   @include media-breakpoint-up(md) {
     padding-top: 25px;
