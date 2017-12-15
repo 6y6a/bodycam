@@ -1,0 +1,114 @@
+@import '../../scss/basic/variables';
+
+
+.menu {
+  position: relative;
+  margin-top: 10px;
+  background: $bg-color;
+  padding: 10px 0;
+
+  @include media-breakpoint-up(xl) {
+    margin-top: -10px;
+  }
+
+  &__container {
+    @include make-container();
+    @include make-container-width();
+    display: flex;
+    justify-content: center;
+  }
+
+  &__toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #fff;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
+  &__text {
+    text-transform: uppercase;
+    font: 16px sans-serif;
+  }
+  
+  &__burger {
+    margin-left: 10px;
+    padding: 5px;
+    flex-direction: column;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+  }
+  
+  &__line {
+    margin-bottom: 3px;
+    display: block;
+    width: 15px;
+    height: 2px;
+    background: #E0E0E0;
+
+    &--last {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    background: $bg-color;
+
+    &--active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @include media-breakpoint-up(md) {
+      position: static;
+      flex-direction: row;
+      justify-content: flex-end;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__item {
+    border-top: 1px solid lighten($bg-color, 5%);
+
+    @include media-breakpoint-up(md) {
+      border-top: none;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 5px 25px;
+    font: 14px sans-serif;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+
+    @include media-breakpoint-up(xl) {
+      font-size: 16px;
+    }
+
+    &:hover {
+      color: $accent-color;
+      border-bottom: 1px solid $accent-color;
+    }
+  }
+
+}
